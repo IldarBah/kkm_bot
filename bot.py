@@ -21,10 +21,7 @@ SYSTEM_PROMPT = """
 logging.basicConfig(level=logging.INFO)
 
 dp = Dispatcher()
-ai_client = genai.Client(
-    api_key=GEMINI_KEY,
-    http_options={'proxy': PROXY_URL}  # прокси для Gemini
-)
+ai_client = genai.Client(api_key=GEMINI_KEY)   # без http_options
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
